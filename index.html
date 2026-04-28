@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Statistik Telekomunikasi Indonesia 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Global Network Canvas Background -->
+  <canvas class="network-canvas" id="globalNetworkCanvas"></canvas>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Scene 1: Hook -->
+    <section class="scene scene-hook" id="sceneHook">
+      <div class="hook-content">
+        <h1 class="fade-up hook-title" style="margin-bottom: 1.5rem; font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.1;">
+          <span class="highlight-gradient">Internet Cepat Buat Apa?</span>
+        </h1>
+        <p class="fade-up delay-1 subtitle" style="color: #94a3b8; font-weight: 400; max-width: 700px; margin: 0 auto; font-size: 1.25rem; line-height: 1.6;">
+          Ya... walaupun di beberapa tempat belum cepat-cepat banget sih<br>
+          Namun, data BPS 2024 ternyata punya jawaban yang bikin miris...
+        </p>
+      </div>
+      
+      <div class="scroll-indicator fade-up delay-2">
+        <span>Scroll untuk Memulai</span>
+        <div class="arrow"></div>
+      </div>
+    </section>
+
+    <!-- Scene 1.5: Trend Penetrasi Internet -->
+    <section class="scene scene-trend" id="sceneTrend">
+      <div class="content-wrapper text-center">
+        <h2 class="fade-up" style="font-family: var(--font-display); margin-bottom: 1rem;">Akses yang Meluas</h2>
+        <p class="fade-up delay-1 subtitle" style="color: #64748b; margin-bottom: 3rem; max-width: 800px; margin: 0 auto 3rem;">
+          Sebelum menjawab pertanyaan itu, kita harus mengakui satu hal: dari tahun ke tahun, akses digital kita memang semakin meluas.
+        </p>
+        
+        <div class="hook-chart-wrapper" style="width: 100%; max-width: 900px; margin: 0 auto; height: 400px; position: relative;">
+          <div id="hookLineChart" style="width: 100%; height: 100%;"></div>
+        </div>
+
+        <p id="hookDescription" class="fade-up description" style="font-size: 1.25rem; line-height: 1.8; max-width: 800px; margin: 3rem auto 0; color: #475569; opacity: 0; transform: translateY(20px);">
+          Indonesia telah melompat ke dalam permainan baru dengan aturan yang belum sepenuhnya dipahami. Dengan jumlah pengguna yang terus meroket tajam ini, sebuah pertanyaan penting muncul: <strong>Bagaimana sebenarnya cara masyarakat Indonesia mengakses dunia maya?</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- Scene 2: Media Mengakses Internet Scrollytelling -->
+    <section class="scrolly-section" id="sceneMedia">
+      <div class="scrolly-sticky">
+        <div class="scrolly-layout" id="mediaLayout">
+          
+          <!-- Kiri/Tengah: Chart -->
+          <div class="scrolly-chart-col" id="mediaChartCol">
+            <h2 class="chart-title text-center">Mobile First Nation</h2>
+            <p class="chart-subtitle text-center">Persentase penduduk yang menggunakan media tertentu untuk mengakses internet (2024)</p>
+            
+            <div class="media-bars" id="mediaBarsContainer">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+          
+          <!-- Kanan: Teks Penjelasan -->
+          <div class="scrolly-text-col" id="mediaTextCol">
+            <div class="step-card" id="stepPhone">
+              <div class="img-wrapper">
+                <img src="hp.png" alt="Telepon Seluler" class="step-image">
+              </div>
+              <h3>The Smartphone as Lifeline</h3>
+              <p>Sembilan dari sepuluh pengguna internet Indonesia tidak pernah mengenal desktop. Mereka melompat langsung—dari nol koneksi ke genggaman penuh dunia. Transformasi ini fundamental.</p>
+            </div>
+            
+            <div class="step-card" id="stepLaptop">
+              <div class="img-wrapper">
+                <img src="tablet.png" alt="Laptop dan Tablet" class="step-image">
+              </div>
+              <h3>Laptop & Tablet</h3>
+              <p>Perangkat sekunder yang umumnya digunakan untuk produktivitas atau bekerja. Persentasenya (10,12%) jauh di bawah dominasi perangkat <em>mobile</em>.</p>
+            </div>
+            
+            <div class="step-card" id="stepDesktop">
+              <div class="img-wrapper">
+                <img src="komputer.png" alt="Komputer Desktop" class="step-image">
+              </div>
+              <h3>Komputer Desktop</h3>
+              <p>Hanya 2,62% pengguna yang masih mengandalkan komputer meja konvensional untuk mengakses internet.</p>
+            </div>
+            
+            <div class="step-card" id="stepOther">
+              <div class="img-wrapper">
+                <img src="tv.png" alt="Lainnya" class="step-image">
+              </div>
+              <h3>Lainnya</h3>
+              <p>Sebagian kecil (0,32%) memanfaatkan media lain seperti Smart TV atau konsol permainan genggam.</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Bridge 1 -->
+    <div class="scene-bridge">
+      <p class="bridge-text fade-up">
+        Ternyata, ketimpangan pilihan perangkat ini sangat memengaruhi kebiasaan masyarakat kita dalam berinternet. Layar kecil di tangan lebih sering digunakan untuk apa?
+      </p>
+    </div>
+
+    <!-- Scene 3: Tujuan Mengakses Internet Scrollytelling -->
+    <section class="scrolly-section" id="sceneUsage">
+      <div class="scrolly-sticky">
+        <div class="scrolly-layout" id="usageLayout">
+          
+          <!-- Kiri/Tengah: Chart -->
+          <div class="scrolly-chart-col" id="usageChartCol">
+            <h2 class="chart-title text-center">Scrolling vs Producing</h2>
+            <p class="chart-subtitle text-center">Tujuan utama penggunaan internet berdasarkan aktivitas (2024).</p>
+            
+            <div class="media-bars usage-bars" id="usageBarsContainer">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+          
+          <!-- Kanan: Teks Penjelasan -->
+          <div class="scrolly-text-col" id="usageTextCol">
+            <div class="step-card" id="stepKonsumtif">
+              <div class="img-wrapper">
+                <img src="sosmed.png" alt="Konsumtif" class="step-image">
+              </div>
+              <h3 style="color: #ef4444;">The Consumption Trap</h3>
+              <p>Di sini, cerita berubah. Pengguna internet Indonesia tidak membangun. Mereka mengonsumsi. Hiburan mendominasi 85% waktu layar. Media sosial memakan 77%. Ini adalah jebakan konsumsi massal.</p>
+            </div>
+            
+            <div class="step-card" id="stepFungsional">
+              <div class="img-wrapper">
+                <img src="informasi.png" alt="Fungsional" class="step-image">
+              </div>
+              <h3>Utilitas & Fungsional</h3>
+              <p>Pengguna secara aktif mencari berita, bertransaksi finansial, hingga berbelanja. Hal ini wajar dan sangat positif sebagai fungsi dasar internet harian.</p>
+            </div>
+            
+            <div class="step-card" id="stepProduktif">
+              <div class="img-wrapper">
+                <img src="work.png" alt="Produktif" class="step-image">
+              </div>
+              <h3>Produktivitas Tertinggal</h3>
+              <p>Pembelajaran online dan bisnis digital jauh tertinggal. Ini bukan kegagalan individu. Ini adalah konsekuensi dari akses yang terbentuk sebelum infrastruktur fungsional tersedia untuk produktivitas sejati.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bridge 2: Scene 3 to 4 -->
+    <div class="scene-bridge">
+      <p class="bridge-text fade-up">
+        Gaya hidup konsumtif ini seolah-olah sudah menjadi fenomena yang merata di seluruh pelosok negeri. Namun, mari kita lihat lebih dekat, sejauh mana sebenarnya 'kemewahan' ini menjangkau masyarakat kita?
+      </p>
+    </div>
+
+    <!-- Pinned Scroll Section for Globe and Map -->
+    <section class="pinned-section" id="pinnedSection">
+      <div class="sticky-container">
+        
+        <!-- Map Layer -->
+        <div class="viz-layer" id="mapLayer">
+          <div id="mapSceneTitle" style="position: absolute; top: 40px; left: 0; z-index: 20; opacity: 0; pointer-events: none; text-align: center; width: 100%;">
+            <span class="label-pill" id="mapPill" style="font-size: 0.7rem; margin-bottom: 0.4rem;">Penetrasi Digital</span>
+            <h2 id="mapMainTitle" style="font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 0; letter-spacing: -0.02em;"></h2>
+          </div>
+          <div id="indonesiaMap" style="width: 100%; height: 100vh;"></div>
+        </div>
+
+        <!-- Narrative Cards that scroll past -->
+        <div class="narrative-layer">
+          <div class="scroll-spacer"></div>
+          
+          <div class="scrolly-text-col" id="penetrasiTextCol" style="position: absolute; top: 50%; right: 5%; left: auto; transform: translateY(-50%); z-index: 30; pointer-events: none;">
+            
+            <div class="step-card" id="cardKepRiau" style="position: absolute; top: 50%; right: 0; width: 100%; transform: translateY(-50%); text-align: left;">
+              <span class="card-badge high">The Great Digital Divide</span>
+              <h3>Kepulauan Riau Bersinar</h3>
+              <div class="card-value" style="color:#10b981; font-size: 3rem;">89,26%</div>
+              <p style="font-size: 1.1rem; line-height: 1.6;">
+                Sisi barat dan kawasan kepulauan berdenyut dengan kecepatan jaringan. Kepulauan Riau menikmati akses internet yang hampir universal, tumbuh secara pesat di atas rata-rata nasional.
+              </p>
+            </div>
+
+            <div class="step-card" id="cardPapua" style="position: absolute; top: 50%; right: 0; width: 100%; transform: translateY(-50%); text-align: left;">
+              <span class="card-badge low">Satu Negara, Dua Realita</span>
+              <h3>Papua Tertinggal</h3>
+              <div class="card-value" style="color:#ef4444; font-size: 3rem;">6,76%</div>
+              <p style="font-size: 1.1rem; line-height: 1.6;">
+                Tapi pedalaman Papua tinggal dalam gelap. Bukan sekadar perbedaan—ini adalah dua negara yang berbeda. Satu tumbuh, satu tertinggal. Satu membangun, satu menunggu.
+              </p>
+            </div>
+
+            <div class="step-card" id="cardMap" style="position: absolute; top: 50%; right: 0; width: 100%; transform: translateY(-50%); text-align: left;">
+              <span class="card-badge">Eksplorasi Data</span>
+              <h3 style="font-family: var(--font-display);">Peta Penetrasi Internet Provinsi</h3>
+              <p style="font-size: 1.1rem; line-height: 1.6;">
+                Di atas kertas, peta penetrasi internet kita tampak sangat menjanjikan. Sebagian besar provinsi menunjukkan warna yang optimis, memberikan ilusi bahwa kita semua sudah sepenuhnya hidup di era digital yang setara.
+              </p>
+            </div>
+
+          </div>
+          <div class="scrolly-text-col" id="blankspotTextCol" style="position: absolute; top: 50%; right: 5%; left: auto; transform: translateY(-50%); z-index: 30; pointer-events: none;">
+            
+            <!-- Bridge B: Inside Map -->
+            <div class="step-card" id="cardBridgeB" style="position: absolute; top: 50%; right: 0; width: 100%; transform: translateY(-50%); text-align: left;">
+              <h3 style="font-family: var(--font-display); color: var(--accent-blue);">Ilusi Statistik</h3>
+              <p style="font-size: 1.25rem; line-height: 1.6; font-weight: 600;">
+                Tapi tunggu dulu. Dalam statistik, angka rata-rata provinsi sering kali menutupi realita pahit yang terjadi di tingkat akar rumput.
+              </p>
+            </div>
+
+            <div class="step-card" id="cardBlankSpot" style="position: absolute; top: 50%; right: 0; width: 100%; transform: translateY(-50%); text-align: left;">
+              <span class="card-badge" style="color:#ef4444;">Infrastruktur Terpinggirkan</span>
+              <h3 style="color:#f87171; font-family: var(--font-display);">Peta Desa Tanpa Sinyal</h3>
+              <p style="font-size: 1.1rem; line-height: 1.6;">
+                Inilah wajah asli infrastruktur kita. Di balik gemerlap angka penetrasi, masih ada wilayah-wilayah di mana warganya tak bisa mengirim pesan singkat, apalagi menikmati hiburan digital. Sinyal masih menjadi barang gaib di ribuan desa.
+              </p>
+            </div>
+
+            <div class="step-card" id="cardBlankParah" style="position: absolute; top: 50%; right: 0; width: 100%; transform: translateY(-50%); text-align: left;">
+              <span class="card-badge low">Kondisi Kritis</span>
+              <h3>Isolasi Geografis</h3>
+              <div class="card-value" style="color:#ef4444; font-size: 3rem;">2.000+ Desa</div>
+              <p style="font-size: 1.1rem; line-height: 1.6;">
+                Sebagian besar berada di pegunungan Papua dan pedalaman luar pulau Jawa. Mereka terisolasi dari peradaban digital, terkunci oleh kerasnya kontur bumi.
+              </p>
+            </div>
+
+            <div class="step-card" id="cardBlankRingan" style="position: absolute; top: 50%; right: 0; width: 100%; transform: translateY(-50%); text-align: left;">
+              <span class="card-badge high">Kondisi Baik</span>
+              <h3>Pusat Terkoneksi</h3>
+              <div class="card-value" style="color:#22c55e; font-size: 3rem;">Hampir 100%</div>
+              <p style="font-size: 1.1rem; line-height: 1.6;">
+                Kontras yang tajam terlihat di Pulau Jawa dan pusat ekonomi lainnya, di mana blankspot nyaris tidak ditemukan. Dua realita dalam satu peta.
+              </p>
+            </div>
+
+          </div>
+          
+          <div class="scroll-spacer end"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bridge 3: Map to Expenditure (Ironi) -->
+    <div class="scene-bridge">
+      <p class="bridge-text fade-up">
+        Namun, ironinya belum berhenti di sini. Untuk sekadar memenuhi gaya hidup digital yang didominasi hiburan tersebut, harga yang harus dibayar nyatanya sangat jomplang antar daerah.
+      </p>
+    </div>
+
+    <!-- Scene 6: Expenditure -->
+    <section class="scene scene-expenditure" id="sceneExpenditure">
+      <div class="content-wrapper two-cols">
+        <div class="text-col">
+          <h2 class="fade-up">Ketimpangan Pengeluaran</h2>
+          <p class="fade-up delay-1" style="font-size: 1.1rem; line-height: 1.6; color: var(--text-main); margin-bottom: 2rem;">
+            Selamat datang di realita <strong>Jakarta-Sentris</strong>. Warga ibu kota rela merogoh kocek hingga Rp365 ribu per bulan, melesat sendirian meninggalkan provinsi lain seperti Jawa Tengah yang tertatih di angka Rp172 ribu.
+          </p>
+          <div class="fade-up delay-2" style="margin-bottom: 2rem;">
+            <div style="font-size: 3rem; font-weight: 800; color: var(--accent-blue); line-height: 1;">93,16%</div>
+            <div style="font-size: 1rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem;">Rumah Tangga Membeli Kuota</div>
+          </div>
+        </div>
+        <div class="chart-col fade-up delay-3">
+          <div id="expenditureChart" style="width: 100%; height: 500px; position: relative;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bridge 4: Expenditure to Closing -->
+    <div class="scene-bridge">
+      <p class="bridge-text fade-up">
+        Fakta mengenai ketimpangan ongkos, perangkat, dan tujuan penggunaan ini pada akhirnya membawa kita pada sebuah perenungan panjang tentang arah digitalisasi bangsa.
+      </p>
+    </div>
+
+    <!-- Scene 7: Closing -->
+    <section class="scene scene-closing" id="sceneClosing">
+      <div class="content-wrapper text-center" style="max-width: 800px; margin: 0 auto;">
+        <h2 class="fade-up" style="font-size: 4rem; letter-spacing: -0.04em; color: var(--text-main); margin-bottom: 2rem;">The Unfinished Future</h2>
+        <p class="fade-up delay-1 desc" style="font-size: 1.25rem; line-height: 1.8; color: #475569; margin-bottom: 2rem;">
+          Lebih dari 270 juta orang kini terhubung. Ini adalah pencapaian yang luar biasa. Tapi, konektivitas bukanlah akhir dari cerita. Ini justru awal dari pertanyaan yang lebih mendasar.
+        </p>
+        <p class="fade-up delay-2 desc" style="font-size: 1.25rem; line-height: 1.8; color: #64748b; margin-bottom: 3rem;">
+          Apa yang kita lakukan dengan konektivitas ini? Apakah kita sedang membangun? Atau hanya mengonsumsi? Apakah jaringan ini menjangkau semua orang secara adil, atau hanya mengistimewakan mereka yang berpusat di kota besar?
+        </p>
+        <div class="fade-up delay-3" style="font-size: 1.75rem; font-weight: 800; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 2.5rem; margin-bottom: 4rem; color: var(--text-main);">
+          Indonesia memang telah terhubung.<br>
+          <span class="highlight-gradient">Sekarang pertanyaannya: Terhubung untuk apa? Dan untuk siapa?</span>
+        </div>
+
+        <div class="fade-up delay-4 credit-box" style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 4rem; letter-spacing: 0.1em;">
+          Sumber Data: Statistik Telekomunikasi Indonesia 2024, BPS
+        </div>
+        
+        <button class="fade-up delay-3 btn-restart" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+          Mulai Kembali
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Local Scripts -->
+  <script src="data.js"></script>
+  <script src="indonesia.js"></script>
+  <script src="map.js"></script>
+  <script src="charts.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

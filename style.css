@@ -1,0 +1,764 @@
+/* ===================================================
+   LANSKAP DIGITAL INDONESIA – Premium Minimalist White Theme
+   =================================================== */
+
+:root {
+  --bg: #ffffff;
+  --surface: #fafafa;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --accent-blue: #2563eb;
+  --accent-green: #059669;
+  --accent-red: #dc2626;
+  --border: #e5e7eb;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Raleway', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text-main);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Ensure sections are transparent to show the fixed background */
+section, .scene, .scene-bridge {
+  background: transparent !important;
+}
+
+/* Progress Bar */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: var(--accent-blue);
+  z-index: 1000;
+}
+
+/* General Layout */
+.scene {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}
+.content-wrapper {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.text-center { text-align: center; }
+.desc { max-width: 600px; margin: 0 auto; line-height: 1.6; color: var(--text-muted); }
+
+/* Fade Up Utility */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: opacity, transform;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+/* --- Scene 1: Hook --- */
+.scene-hook, .scene-closing {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.network-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hook-content, .scene-closing .content-wrapper {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.label-pill {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--accent-blue);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.hook-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+.highlight-gradient {
+  background: linear-gradient(135deg, var(--accent-blue), #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.big-number-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+.big-number {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, var(--text-main), #4b5563);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.percent {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 0.5rem;
+}
+.subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+}
+.description {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  animation: bounce 2s infinite;
+}
+.scroll-indicator .arrow {
+  width: 2px;
+  height: 24px;
+  background: var(--text-muted);
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
+}
+
+/* --- Scene 2: Scrollytelling Media --- */
+.scrolly-section {
+  position: relative;
+}
+.scrolly-sticky {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--surface);
+}
+.scrolly-layout {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* We will slide this container to the left with GSAP */
+}
+
+/* Kanan: Chart Column (starts center, GSAP moves to right) */
+.scrolly-chart-col {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 800px;
+  padding: 0 2rem;
+  /* GSAP will animate to translate(-50%, -50%) if needed */
+}
+.chart-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: 0.5rem;
+}
+.chart-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.media-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.media-bar-row, .usage-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: opacity 0.4s ease;
+}
+.media-label, .usage-label {
+  width: 170px;
+  text-align: right;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-main);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.media-bar-bg {
+  flex: 1;
+  height: 28px;
+  background: rgba(226, 232, 240, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+}
+.media-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-blue), #3b82f6);
+  border-radius: 14px;
+  width: 0%; /* GSAP animates this */
+}
+.media-val, .usage-val {
+  width: 80px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  text-align: left;
+}
+
+/* Scene 2: Radial Chart Specific Styling */
+.radial-chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+.radial-chart {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+.radial-bg {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 28;
+}
+.radial-fill {
+  fill: none;
+  stroke-width: 28;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: opacity 0.4s ease;
+  /* GSAP will animate stroke-dashoffset */
+}
+
+.radial-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 320px;
+  background: none; /* Seamless */
+  border: none;
+  box-shadow: none;
+}
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: opacity 0.4s ease;
+}
+.legend-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+}
+.legend-label {
+  flex: 1;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-main);
+}
+.legend-val {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-main);
+}
+
+/* Scene 3: Usage Bars Specific Styling */
+.usage-bars {
+  gap: 0.8rem;
+}
+
+/* 3 Color Zones for Usage Chart */
+.bar-konsumtif .media-bar-fill {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24); /* Orange/Yellow - Bad connotation as requested */
+}
+.bar-fungsional .media-bar-fill {
+  background: linear-gradient(90deg, #2563eb, #3b82f6); /* Blue - Neutral/Functional */
+}
+.bar-produktif .media-bar-fill {
+  background: linear-gradient(90deg, #10b981, #34d399); /* Green - Positive/Productive */
+}
+
+
+/* Kanan: Text Column */
+.scrolly-text-col {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  width: 35%;
+  max-width: 500px;
+  height: 500px;
+  opacity: 0;
+  visibility: hidden;
+  /* GSAP will animate autoAlpha to 1 */
+}
+.step-card {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.step-card h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+}
+.step-card p {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #475569;
+  font-weight: 400;
+}
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--accent-blue), #3b82f6, #8b5cf6);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.15; /* Lowered opacity as requested */
+  box-shadow: 0 4px 12px -4px rgba(37, 99, 235, 0.2);
+}
+.img-wrapper img, .img-wrapper svg {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  display: block;
+}
+.step-image {
+  width: 60px !important; /* Slightly larger icons */
+  height: 60px !important;
+  object-fit: contain;
+  /* Removed brightness filter to keep original PNG colors */
+}
+.icon-wrapper svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* --- Scene 3: Usage Bars --- */
+.bars-container {
+  margin-top: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.usage-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.u-label {
+  width: 120px;
+  text-align: right;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.u-bar-bg {
+  flex: 1;
+  height: 8px;
+  background: var(--surface);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.u-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  /* GSAP animates width */
+}
+.u-val {
+  width: 50px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+/* --- Pinned Section (Globe + Map) --- */
+.pinned-section {
+  position: relative;
+}
+.sticky-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #f8fafc;
+}
+.viz-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+#globeCanvas, #indonesiaMap {
+  width: 100%;
+  height: 100%;
+}
+.narrative-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass through to globe/map */
+}
+.card-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0; /* Managed by GSAP */
+  visibility: hidden;
+}
+#cardKepRiau { left: 5%; }
+#cardPapua { right: 5%; }
+#cardMap { left: 2.5%; bottom: 6%; top: auto; transform: translateY(0) translateX(-30px); }
+#cardBlankSpot { left: 2.5%; bottom: 6%; top: auto; transform: translateY(0) translateX(-30px); }
+
+.narrative-card {
+  background: transparent; /* Seamless: removed background */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0; /* Reduced padding for seamless look */
+  border: none; /* Removed border */
+  box-shadow: none; /* Removed shadow */
+  width: 300px;
+  pointer-events: auto;
+  color: var(--text-main);
+}
+.narrative-card h3 { color: var(--text-main); font-family: var(--font-display); }
+.narrative-card p { color: var(--text-muted); }
+.narrative-card.wide { width: 360px; text-align: left; }
+.card-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0;
+  border-radius: 0;
+  margin-bottom: 1rem;
+}
+.card-badge.high { background: none; color: #10b981; border: none; }
+.card-badge.low { background: none; color: #ef4444; border: none; }
+.card-value {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: var(--text-main);
+}
+.danger-text { color: #dc2626; }
+
+/* Legend */
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+.gradient-bar {
+  width: 100px;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #eff6ff, #2563eb);
+}
+
+/* Globe Choropleth Legend */
+.globe-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 1.25rem;
+  justify-content: center;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+.legend-item .dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px 1px currentColor;
+}
+
+
+/* --- Scene 6: Expenditure --- */
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.highlight { color: var(--accent-blue); }
+.stats-box { margin-top: 2rem; }
+.stat-item {
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+.stat-val { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--text-main); }
+.stat-lbl { font-size: 0.875rem; color: var(--text-muted); margin-top: 0.25rem; }
+
+.scene-closing {
+  position: relative;
+  overflow: hidden;
+}
+.scene-closing .content-wrapper {
+  position: relative;
+  z-index: 1;
+}
+.closing-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 4rem 0;
+}
+.c-stat {
+  padding: 2rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  min-width: 200px;
+}
+.c-val {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.c-val.danger { color: var(--accent-red); }
+.c-lbl { color: var(--text-muted); margin-top: 0.5rem; }
+.btn-restart {
+  background: var(--text-main);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-restart:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(0,0,0,0.5);
+}
+
+/* Tooltip */
+.tooltip {
+  position: fixed; /* Fix for scrolling overflow */
+  background: rgba(15, 23, 42, 0.95); /* Dark background for visibility */
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  font-size: 0.875rem;
+  color: #f1f5f9;
+  z-index: 1000;
+  font-family: var(--font-body);
+}
+.tooltip.visible {
+  opacity: 1;
+}
+
+/* Packed Bubble Chart Styles */
+.bubble-node {
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+.bubble-node:hover {
+  filter: brightness(0.9);
+}
+.bubble-label {
+  pointer-events: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  fill: var(--text-main);
+  text-anchor: middle;
+}
+.bubble-sublabel {
+  pointer-events: none;
+  font-family: var(--font-body);
+  font-size: 10px;
+  fill: var(--text-muted);
+  text-anchor: middle;
+}
+
+
+/* Scene Bridges */
+.scene-bridge {
+  padding: 15vh 0;
+  text-align: center;
+  position: relative;
+  z-index: 5;
+}
+.scene-bridge .bridge-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-main);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .devices-comparison { flex-direction: column; gap: 2rem; }
+  .vs-divider { transform: rotate(90deg); }
+  .two-cols { grid-template-columns: 1fr; }
+  .closing-stats { flex-direction: column; gap: 1rem; }
+  #cardKepRiau, #cardPapua { left: 50%; right: auto; transform: translate(-50%, -50%); }
+  .bubble-label { font-size: 10px; }
+  .scene-bridge .bridge-text { font-size: 1.25rem; }
+}
