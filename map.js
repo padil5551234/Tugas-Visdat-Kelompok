@@ -1,7 +1,4 @@
-/* ===================================================
-   MAP.JS – Choropleth v3: Green→Yellow→Brown scale,
-            Glow highlight, Centered overlay panel
-   =================================================== */
+
 
 let currentMapMode = 'penetrasi';
 let mapPaths = {};
@@ -14,7 +11,6 @@ let mapInteractive = false;
 let wasMapFullScreen = false;
 let mapGeoJSONData = null; 
 
-/* ── Province name normalization ── */
 const PROVINCE_MAP = {
   "Daerah Istimewa Yogyakarta": "DI Yogyakarta",
   "Nusa Tenggara Barat": "NTB",
@@ -24,7 +20,6 @@ const PROVINCE_MAP = {
 };
 function normalizeProvName(n) { return PROVINCE_MAP[n] || n; }
 
-/* ── Color scales ── */
 function getMapColor(value, mode) {
   if (value === null || value === undefined) return '#f1f5f9';
   if (mode === 'penetrasi') {
